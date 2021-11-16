@@ -23,7 +23,7 @@ parser = argparse.ArgumentParser(description='PyTorch RBNN Training')
 parser.add_argument('--results_dir', metavar='RESULTS_DIR', default='./results', help='results dir')
 parser.add_argument('--load', metavar='LOAD',
                     default='result', help='loaded folder')
-parser.add_argument('--datasets', metavar='DATASETS', type=list, nargs='+',
+parser.add_argument('--datasets', metavar='DATASETS', nargs='+',
                     default=['cifar10', 'fashionmnist', 'svhn'],
                     help="['cifar10', 'fashionmnist', 'svhn', 'cifar100']")
 parser.add_argument('--model', '-a', metavar='MODEL', default='reactnet', choices=model_names,
@@ -180,7 +180,6 @@ def main():
 
     load_path = os.path.join(args.results_dir, args.load) + '/model_best.pth.tar'
     checkpoint = torch.load(load_path)
-    print(checkpoint)
     model.load_state_dict(checkpoint['state_dict'])
 
     # define loss function (criterion) and optimizer
