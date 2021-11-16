@@ -23,7 +23,7 @@ parser = argparse.ArgumentParser(description='PyTorch RBNN Training')
 parser.add_argument('--results_dir', metavar='RESULTS_DIR', default='./results', help='results dir')
 parser.add_argument('--save', metavar='SAVE',
                     default='result', help='saved folder')
-parser.add_argument('--datasets', metavar='DATASETS', type=list, nargs='+',
+parser.add_argument('--datasets', metavar='DATASETS', nargs='+',
                     default=['cifar10', 'fashionmnist', 'svhn'],
                     help="['cifar10', 'fashionmnist', 'svhn', 'cifar100']")
 parser.add_argument('--model', '-a', metavar='MODEL', default='reactnet', choices=model_names,
